@@ -11,7 +11,7 @@
 //===========================
 var s1={};
 //設定 this=s1, 並執行 Student()函式, 依序傳入其他參數
-Student.call(s1, '10456001', '王小明');   //註1
+Student.call(s1, '10456001', '王小明'); 
 
 console.log(s1.getStuNo());
 console.log(s1.getStuName());
@@ -104,7 +104,7 @@ function Student(stuNo, stuName){
 //===========================
 // 用建構元函式生成物件s1
 //===========================
-var s1=new Student('10456001', '王小明', '張老師');   //註1
+var s1=new Student('10456001', '王小明', '張老師'); 
 
 console.log(s1.getStuNo());
 console.log(s1.getStuName());
@@ -115,7 +115,7 @@ console.log('--------------');
 //===========================
 // 用建構元函式生成物件s2
 //===========================
-var s2=new Student('10456002', '陳小華', '李老師');   //註1
+var s2=new Student('10456002', '陳小華', '李老師');
 
 console.log(s2.getStuNo());
 console.log(s2.getStuName());
