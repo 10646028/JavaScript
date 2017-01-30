@@ -94,3 +94,84 @@ function Student(stuNo, stuName){
 --------------
 ```
 
+
+
+## (2) call()及apply()改變了this的指向
+
+
+#####測試程式
+```javascript
+//===========================
+// 用建構元函式生成物件s1
+//===========================
+var s1=new Student('10456001', '王小明', '張老師');   //註1
+
+console.log(s1.getStuNo());
+console.log(s1.getStuName());
+console.log(s1.getTeacher());
+console.log('--------------');
+
+
+//===========================
+// 用建構元函式生成物件s2
+//===========================
+var s2=new Student('10456002', '陳小華', '李老師');   //註1
+
+console.log(s2.getStuNo());
+console.log(s2.getStuName());
+console.log(s2.getTeacher());
+console.log('--------------');
+
+
+//-----------------------------------
+// s1.getTeacher()中, this改指向s2
+//-----------------------------------
+console.log(s1.getTeacher.call(s2));
+console.log('--------------');
+
+
+//-----------------------------------
+// s2.getTeacher()中, this改指向s1
+//-----------------------------------
+console.log(s2.getTeacher.call(s1));
+console.log('--------------');
+
+
+
+//================================================
+// 一建構元函式，用來生成物件, 建議以大寫字開頭
+//================================================
+function Student(stuNo, stuName, teacher){
+    //------------------------
+    // 建立物件內區域變數
+    //------------------------    
+    this.stuNo=stuNo;
+    this.stuName=stuName;
+    this.teacher=teacher;
+    
+    //------------------------
+    // 建立物件內函式屬性
+    //------------------------
+    this.getStuNo=function(){return this.stuNo;}
+    this.getStuName=function(){return this.stuName;}
+    this.getTeacher=function(){return this.teacher;}
+}
+```
+
+
+
+#####執行結果
+```
+10456001
+王小明
+張老師
+--------------
+10456002
+陳小華
+李老師
+--------------
+李老師
+--------------
+張老師
+--------------
+```
