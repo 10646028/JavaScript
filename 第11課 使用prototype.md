@@ -1,7 +1,7 @@
 #第11課 使用prototype
 
 
-## (1) 使用prototype產生共用物件
+## (1) 使用prototype繼承某個物件
 
 
 #####測試程式
