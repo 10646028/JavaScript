@@ -38,6 +38,9 @@ for(var i=0; i<array.length; i++){
 console.log('-----------------');
 
 
+//=====================
+// 加入元件
+//=====================
 array.push('smith');
 
 for(var i=0; i<array.length; i++){
@@ -83,6 +86,9 @@ for(var i=0; i<array.length; i++){
 console.log('-----------------');
 
 
+//=====================
+// 取出元件
+//=====================
 var k=array.pop();
 
 console.log(k);
