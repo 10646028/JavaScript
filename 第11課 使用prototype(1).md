@@ -1,4 +1,4 @@
-#第11課 使用prototype
+#第11課 使用prototype(1)
 
 
 ## (1) 使用prototype繼承某個物件
