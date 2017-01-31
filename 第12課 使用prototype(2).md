@@ -179,3 +179,156 @@ B
 45000
 --------------
 ```
+
+
+
+## (2) 測試物件的原型
+
+
+#####測試程式
+```javascript
+//=====================
+// 共用變數
+//=====================
+var Common = {
+	payPerHour:150,
+	rank_A_salary:50000,
+	rank_B_salary:45000,
+	rank_others_salary:40000
+}
+
+
+//====================
+// 員工的原型物件
+//====================
+var employeeCommon = {
+	//------------------------
+	// setters
+	//------------------------
+	setEmpNo:function(empNo){
+		this.empNo=empNo;
+	},
+	setEmpName:function(empName){
+		this.empName=empName;
+	},
+
+	//------------------------
+	// getters
+	//------------------------	
+	getEmpNo:function(){
+		return this.empNo;
+	},
+	getEmpName:function(){
+		return this.empName;
+	}
+}
+
+
+//======================================
+// 建構元函式，用來生成時薪員工物件
+//======================================
+function HourlyEmployee(empNo, empName, hoursThisWeek){
+    //------------------------
+    // 建立物件內區域變數
+    //------------------------    
+    this.empNo=empNo;
+    this.empName=empName;
+    this.hoursThisWeek=hoursThisWeek;
+    
+    //------------------------
+    // 建立物件內函式屬性
+    //------------------------
+    this.setHoursThisWeek=function(hoursThisWeek){this.hoursThisWeek=hoursThisWeek;}
+    this.getHoursThisWeek=function(){return this.hoursThisWeek;}
+
+    this.salary=function(){
+    	return Common.payPerHour*this.hoursThisWeek;
+    }
+}
+
+
+//======================================
+// 建構元函式，用來生成月薪員工物件
+//======================================
+function MonthlyEmployee(empNo, empName, rank){
+    //------------------------
+    // 建立物件內區域變數
+    //------------------------    
+    this.empNo=empNo;
+    this.empName=empName;
+    this.rank=rank;
+
+    //------------------------
+    // 建立物件內函式屬性
+    //------------------------
+    this.setRank=function(rank){this.rank=rank;}
+    this.getRank=function(){return this.rank;}
+
+    this.salary=function(){
+    	var salaryThisMonth=0;
+    	
+    	if(this.rank=='A'){
+			salaryThisMonth=Common.rank_A_salary;  		
+    	}else if(this.rank=='B'){
+    		salaryThisMonth=Common.rank_B_salary;
+    	}else{
+    		salaryThisMonth=Common.rank_others_salary;
+    	}
+    	
+    	return salaryThisMonth;
+    }
+}
+
+
+//==================================================
+// 將所有類型員工的原型指向employeeCommon物件
+//==================================================
+HourlyEmployee.prototype=employeeCommon;
+MonthlyEmployee.prototype=employeeCommon;
+
+
+//==============================
+// 用建構元函式生成物件s1, s2
+//==============================
+var s1=new HourlyEmployee('A001', '王小明', 40);
+var s2=new HourlyEmployee('A002', '陳小華', 35);
+
+
+//==============================
+// 用建構元函式生成物件s3, s4
+//==============================
+var s3=new MonthlyEmployee('B001', '李小強', 'A');
+var s4=new MonthlyEmployee('B002', '張小文', 'B');
+
+
+
+//==============================
+// 測試物件的原型
+//==============================
+console.log(s1.__proto__);
+console.log('--------------');
+
+console.log(HourlyEmployee.prototype);
+console.log('--------------');
+
+console.log(s1.__proto__===HourlyEmployee.prototype);
+console.log('--------------');
+```
+
+
+
+#####執行結果
+```
+{ setEmpNo: [Function: setEmpNo],
+  setEmpName: [Function: setEmpName],
+  getEmpNo: [Function: getEmpNo],
+  getEmpName: [Function: getEmpName] }
+--------------
+{ setEmpNo: [Function: setEmpNo],
+  setEmpName: [Function: setEmpName],
+  getEmpNo: [Function: getEmpNo],
+  getEmpName: [Function: getEmpName] }
+--------------
+true
+--------------
+```
