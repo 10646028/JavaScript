@@ -137,6 +137,20 @@ console.log(s2.getTeacher.call(s1));
 console.log('--------------');
 
 
+//-----------------------------------
+// s1.getTeacher()中, this改指向s2
+//-----------------------------------
+console.log(s1.getTeacher.apply(s2));
+console.log('--------------');
+
+
+//-----------------------------------
+// s2.getTeacher()中, this改指向s1
+//-----------------------------------
+console.log(s2.getTeacher.apply(s1));
+console.log('--------------');
+
+
 
 //================================================
 // 一建構元函式，用來生成物件, 建議以大寫字開頭
@@ -148,7 +162,7 @@ function Student(stuNo, stuName, teacher){
     this.stuNo=stuNo;
     this.stuName=stuName;
     this.teacher=teacher;
-    
+
     //------------------------
     // 建立物件內函式屬性
     //------------------------
@@ -169,6 +183,10 @@ function Student(stuNo, stuName, teacher){
 10456002
 陳小華
 李老師
+--------------
+李老師
+--------------
+張老師
 --------------
 李老師
 --------------
