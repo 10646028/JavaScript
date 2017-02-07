@@ -7,16 +7,16 @@
 #####測試程式
 ```javascript
 //====================================================
-// 產生一個StudentCommon物件 並將Student原型指向前述物件
+// 產生一個Student物件 並將NTUBStudent原型指向前述物件
 //====================================================
-var studentCommon=new StudentCommon();
-Student.prototype=studentCommon;
+var student=new Student();
+NTUBStudent.prototype=student;
 
 
-//=================================
-// 建構元函式, 產生Student的原型物件
-//=================================
-function StudentCommon(){
+//=============================
+// 建構元函式, 產生原型物件
+//=============================
+function Student(){
     this.getDept=function(){
         var d='未知';
         
@@ -37,10 +37,10 @@ function StudentCommon(){
 }
 
 
-//==================================
-// 一建構元函式，用來生成Student物件
-//==================================
-function Student(stuNo, stuName){
+//=========================================
+// 一建構元函式，用來生成NTUBStudent物件
+//=========================================
+function NTUBStudent(stuNo, stuName){
     //------------------------
     // 建立物件內區域變數
     //------------------------    
@@ -59,7 +59,7 @@ function Student(stuNo, stuName){
 //===========================
 // 用建構元函式生成物件s1
 //===========================
-var s1=new Student('10456001', '王小明');
+var s1=new NTUBStudent('10456001', '王小明');
 
 console.log(s1.getStuNo());
 console.log(s1.getStuName());
@@ -70,7 +70,7 @@ console.log('--------------');
 //===========================
 // 用建構元函式生成物件s2
 //===========================
-var s2=new Student('10446002', '陳小華');
+var s2=new NTUBStudent('10446002', '陳小華');
 console.log(s2.getStuNo());
 console.log(s2.getStuName());
 console.log(s2.getDept());
@@ -98,16 +98,16 @@ console.log('--------------');
 
 #####測試程式
 ```javascript
-//================================================
-// 一個物件, 將作為由Student函式產生的物件的原型
-//================================================
-var studentCommon = {
+//========================================
+// 一個物件, 將作為NTUBStudent物件的原型
+//========================================
+var student = {
     getDept:function(){
         var d='未知';
 
-        //------------------------
-        // this指向Student物件
-        //------------------------
+        //--------------------------
+        // this指向NTUBStudent物件
+        //--------------------------
         var s=this.stuNo.charAt(3);
         if(s=='3'){
             d='二技';
@@ -122,10 +122,10 @@ var studentCommon = {
 }
 
 
-//==================================
-// 一建構元函式，用來生成Student物件
-//==================================
-function Student(stuNo, stuName){
+//========================================
+// 一建構元函式，用來生成NTUBStudent物件
+//========================================
+function NTUBStudent(stuNo, stuName){
     //------------------------
     // 建立物件內區域變數
     //------------------------    
@@ -141,15 +141,15 @@ function Student(stuNo, stuName){
 
 
 //======================================
-// 將Student原型指向studentCommon物件
+// 將NTUBStudent原型指向student物件
 //======================================
-Student.prototype=studentCommon;
+NTUBStudent.prototype=student;
 
 
 //===========================
 // 用建構元函式生成物件s1
 //===========================
-var s1=new Student('10456001', '王小明');
+var s1=new NTUBStudent('10456001', '王小明');
 
 console.log(s1.getStuNo());
 console.log(s1.getStuName());
@@ -160,7 +160,7 @@ console.log('--------------');
 //===========================
 // 用建構元函式生成物件s2
 //===========================
-var s2=new Student('10446002', '陳小華');
+var s2=new NTUBStudent('10446002', '陳小華');
 console.log(s2.getStuNo());
 console.log(s2.getStuName());
 console.log(s2.getDept());
