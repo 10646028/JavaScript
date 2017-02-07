@@ -1,7 +1,7 @@
-#第09課 使用call()及apply()
+#第09課 使用call及apply函式
 
 
-## (1) 使用call()及apply()建立物件
+## (1) 使用call及apply函式建立物件
 
 
 #####測試程式
