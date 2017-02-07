@@ -20,7 +20,7 @@ var Common = {
 //====================
 // 員工的原型物件
 //====================
-var employeeCommon = {
+var employee = {
     //------------------------
     // setters
     //------------------------
@@ -99,11 +99,11 @@ function MonthlyEmployee(empNo, empName, rank){
 }
 
 
-//==================================================
-// 將所有類型員工的原型指向employeeCommon物件
-//==================================================
-HourlyEmployee.prototype=employeeCommon;
-MonthlyEmployee.prototype=employeeCommon;
+//========================================
+// 將所有類型員工的原型指向employee物件
+//========================================
+HourlyEmployee.prototype=employee;
+MonthlyEmployee.prototype=employee;
 
 
 //===========================
@@ -201,7 +201,7 @@ var Common = {
 //====================
 // 員工的原型物件
 //====================
-var employeeCommon = {
+var employee = {
 	//------------------------
 	// setters
 	//------------------------
@@ -280,11 +280,11 @@ function MonthlyEmployee(empNo, empName, rank){
 }
 
 
-//==================================================
-// 將所有類型員工的原型指向employeeCommon物件
-//==================================================
-HourlyEmployee.prototype=employeeCommon;
-MonthlyEmployee.prototype=employeeCommon;
+//==========================================
+// 將所有類型員工的原型指向employee物件
+//==========================================
+HourlyEmployee.prototype=employee;
+MonthlyEmployee.prototype=employee;
 
 
 //==============================
@@ -299,7 +299,6 @@ var s2=new HourlyEmployee('A002', '陳小華', 35);
 //==============================
 var s3=new MonthlyEmployee('B001', '李小強', 'A');
 var s4=new MonthlyEmployee('B002', '張小文', 'B');
-
 
 
 //==============================
