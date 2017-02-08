@@ -194,3 +194,91 @@ empName:王小明
 department:財務部
 ------------
 ```
+
+
+
+## (3) 使用函式建立父子關係
+
+
+#####測試程式
+```javascript
+//====================
+// 員工的建構元函式
+//====================
+function Employee(empNo, empName, department){
+	this.empNo=empNo;
+	this.empName=empName;
+	this.department=department;
+}
+
+
+//==========================
+// 時薪員工的建構元函式
+//==========================
+function HourlyEmployee(hoursThisWeek){
+    //------------------------
+    // 建立物件內區域變數
+    //------------------------    
+    this.hoursThisWeek=hoursThisWeek;
+
+    //------------------------
+    // 建立物件內函式屬性
+    //------------------------
+    this.salary=function(){
+        return 300*this.hoursThisWeek;
+    };
+}
+
+
+
+//=========================
+// 以函式建立物件的繼承
+//=========================
+function inherit(parent){
+    if(parent===null){
+        throw TypeError();
+    }
+
+    if(Object.create(parent)){
+        return Object.create(parent);
+    }
+
+    function child(){}
+    child.prototype=parent;
+    return new child();
+} 
+
+
+//==========================================
+// 建立s1, 它的prototype 為 Employee物件
+//==========================================
+var s1=inherit(new Employee('A001', '王小明', '財務部'));
+
+
+//====================
+// 設定 s1 的屬性
+//====================
+HourlyEmployee.apply(s1, [35]);
+
+
+//===============
+// 列出屬性值
+//===============
+console.log(s1.empNo);
+console.log(s1.empName);
+console.log(s1.department);
+console.log(s1.hoursThisWeek);
+console.log(s1.salary());
+console.log('------------');
+```
+
+
+#####執行結果
+```
+A001
+王小明
+財務部
+35
+10500
+------------
+```
