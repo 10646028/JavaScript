@@ -107,3 +107,90 @@ A001
 true
 ------------
 ```
+
+
+
+## (2) 使用Object.create函式建立prototype
+
+
+#####測試程式
+```javascript
+//====================
+// 員工的建構元函式
+//====================
+function Employee(empNo, empName, department){
+	this.empNo=empNo;
+	this.empName=empName;
+	this.department=department;
+}
+
+
+//==========================
+// 時薪員工的建構元函式
+//==========================
+function HourlyEmployee(hoursThisWeek){
+    //------------------------
+    // 建立物件內區域變數
+    //------------------------    
+    this.hoursThisWeek=hoursThisWeek;
+
+    //------------------------
+    // 建立物件內函式屬性
+    //------------------------
+    this.salary=function(){
+        return 300*this.hoursThisWeek;
+    };
+}
+
+
+//==========================================
+// 建立s1, 它的prototype 為 Employee物件
+//==========================================
+var s1=Object.create(new Employee('A001', '王小明', '財務部'));
+
+
+//====================
+// 設定 s1 的屬性
+//====================
+HourlyEmployee.apply(s1, [35]);
+
+
+//===============
+// 列出屬性值
+//===============
+console.log(s1.empNo);
+console.log(s1.empName);
+console.log(s1.department);
+console.log(s1.hoursThisWeek);
+console.log(s1.salary());
+console.log('------------');
+
+
+//====================
+// 列出屬性名稱及值
+//====================
+for(var property in s1){
+    console.log(property + ":" + s1[property]);
+}
+
+console.log('------------');
+```
+
+
+#####執行結果
+```
+A001
+王小明
+財務部
+35
+10500
+------------
+hoursThisWeek:35
+salary:function () {
+        return 300 * this.hoursThisWeek;
+    }
+empNo:A001
+empName:王小明
+department:財務部
+------------
+```
