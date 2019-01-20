@@ -1,2 +1,3 @@
 # JavaScript
-北商資管的 JavaScript 講義
+
+林宏仁的 JavaScript 筆記
