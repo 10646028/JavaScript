@@ -33,6 +33,8 @@ console.log(m2);
 var m1 = ['Hello'];
 var m2 = m1;
 
+console.log(typeof(m1));
+console.log(m1 instanceof Array)
 console.log(m1);
 console.log(m2);
 console.log();
