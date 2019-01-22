@@ -122,5 +122,5 @@ function add(a, b=15){
 // 主程式
 //------------------------------
 console.log(add(10, 20));   //210
-console.log(m);   //50
+console.log(m);   //210
 ```
