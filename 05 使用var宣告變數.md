@@ -54,7 +54,7 @@ function add(a, b=15){
 // 主程式
 //------------------------------
 console.log(add(10, 20));   //30
-console.log(m);   //30
+console.log(m);             //30
 ```
 
 
@@ -89,7 +89,7 @@ function add(a, b=15){
 // 主程式
 //------------------------------
 console.log(add(10, 20));   //210
-console.log(m);   //50
+console.log(m);             //50
 ```
 
 
@@ -122,7 +122,7 @@ function add(a, b=15){
 // 主程式
 //------------------------------
 console.log(add(10, 20));   //210
-console.log(m);   //210
+console.log(m);             //210
 ```
 
 
@@ -194,7 +194,7 @@ function add(a, b=15){
 // 主程式
 //------------------------------
 console.log(add(10, 20));   //210
-console.log(m);   //50 
+console.log(m);             //50 
 ```
 
 
@@ -232,5 +232,5 @@ function add(a, b=15){
 // 主程式
 //------------------------------
 console.log(add(10, 20));   //30
-console.log(m);   //50
+console.log(m);             //50
 ```
