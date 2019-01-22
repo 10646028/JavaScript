@@ -76,19 +76,16 @@ function evaluation(height, weight){
     const obesity = "肥胖";    //不可更改內容值的常數
 
     var b = bmi(height, weight);
-    var results;
 
     if(b < 18.5){
-        results = tooSlim;
+        return tooSlim;
     }else if(b >= 18.5 && b < 24){
-        results = normal;
+        return normal;
     }else if(b >= 24 && b < 27){
-        results = tooHeavy;
+        return tooHeavy;
     }else{
-        results = obesity;
+        return obesity;
     }
-
-    return results;
 }
 
 //------------------------------
@@ -131,19 +128,16 @@ function bmi(height, weight){
 //-----------------------------------------  
 function evaluation(height, weight){
     var b = bmi(height, weight);
-    var results;
 
     if(b < 18.5){
-        results = tooSlim;
+        return tooSlim;
     }else if(b >= 18.5 && b < 24){
-        results = normal;
+        return normal;
     }else if(b >= 24 && b < 27){
-        results = tooHeavy;
+        return tooHeavy;
     }else{
-        results = obesity;
+        return obesity;
     }
-
-    return results;
 }
 
 //------------------------------
