@@ -1,4 +1,4 @@
-# 02 Immutable及Mutable物件
+# 01-2 Immutable及Mutable物件
 
 ```
 資料來源: https://developer.mozilla.org/zh-TW/docs/Glossary/Primitive
