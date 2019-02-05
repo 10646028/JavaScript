@@ -1,4 +1,4 @@
-# 07-1 Promise物件
+# 07-1 Promise非同步工作
 
 ```
 參考資料: https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise
