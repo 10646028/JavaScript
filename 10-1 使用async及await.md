@@ -113,18 +113,20 @@ function readFile(fileName){
 //------------------------------------------
 async function readFiles() {
     //工作(1)
-    await readFile('exams.csv').then((value) => {
-        console.log('工作(1)');   
-    }, (error) => {
-        console.log('錯誤:檔案不存在' + error);  //接收失敗回傳
-    });
+    await readFile('exams.csv')
+        .then((value) => {
+            console.log('工作(1)');   
+        }, (error) => {
+            console.log('錯誤:檔案不存在' + error);  //接收失敗回傳
+        });
 
     //工作(2)
-    await readFile('exams.csv').then((value) => {
-        console.log('工作(2)');   
-    }, (error) => {
-        console.log('錯誤:檔案不存在' + error);  //接收失敗回傳
-    });
+    await readFile('exams.csv')
+        .then((value) => {
+            console.log('工作(2)');   
+        }, (error) => {
+            console.log('錯誤:檔案不存在' + error);  //接收失敗回傳
+        });
 
     //工作(3)    
     console.log('工作(3)');
