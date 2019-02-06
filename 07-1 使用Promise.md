@@ -1,9 +1,9 @@
-# 07-1 Promise非同步工作
+# 07-1 使用Promise
 
 ```
 參考資料: https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-Promise物件內由使用者自訂一個函式, 通常為了處理非同步工作, 其執行結果有成功或失敗的情況.
+Promise物件內由使用者自訂一個函式, 其執行結果有成功或失敗的情況.
 ```
 
 ### (1-1) 測試資料, exams.csv 
