@@ -77,7 +77,7 @@ const fs = require('fs');
 const readline = require('readline');
 
 //------------------------------------------
-// 建立一個Promise非同步物件, 結果可能是:
+// 建立一個Promise物件, 結果可能是:
 //   (1)成功: 呼叫resolve()
 //   (2)失敗: 呼叫reject()
 //------------------------------------------
@@ -108,7 +108,9 @@ const promise = new Promise((resolve, reject) => {
 
 
 //------------------------------------------
-// 執行非同步工作 
+// 執行Promise工作, 等待resolve或reject,
+// 當resolve()被呼叫時, 執行then();
+// 當reject()被呼叫時, 執行error();
 //------------------------------------------
 promise.then((value) => {
     console.log(value);  //接收成功回傳
