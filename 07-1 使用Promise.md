@@ -109,8 +109,8 @@ const promise = new Promise((resolve, reject) => {
 
 //------------------------------------------
 // 執行Promise工作, 等待resolve或reject,
-// 當resolve()被呼叫時, 執行then();
-// 當reject()被呼叫時, 執行error();
+// 當resolve()被呼叫時, 執行成功的函式;
+// 當reject()被呼叫時, 執行失敗的函式.
 //------------------------------------------
 promise.then((value) => {
     console.log(value);  //接收成功回傳
