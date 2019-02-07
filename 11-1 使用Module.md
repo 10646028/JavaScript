@@ -9,7 +9,7 @@
             |__ connection.js
 ```
 
-### (1-1) 模組, connection.js
+### (1) 模組, connection.js
 
 ```javascript
 //--------------------------
@@ -25,7 +25,7 @@ module.exports = connection;
 ```
 
 
-### (1-2) 程式範例, main.js
+### (2) 程式範例, main.js
 
 ```javascript
 //-------------------
