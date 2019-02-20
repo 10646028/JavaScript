@@ -12,9 +12,9 @@
 var m1 = 'Hello';
 var m2 = m1;
 
-console.log(m1);
-console.log(m2);
-console.log();
+console.log(m1);   //Hello
+console.log(m2);   //Hello
+console.log();    
 
 //-------------------------------------------------
 // m1物件(string)是一個immutable物件,
@@ -23,8 +23,8 @@ console.log();
 //-------------------------------------------------
 m1 = 'Hi';
 
-console.log(m1);
-console.log(m2);
+console.log(m1);   //Hi
+console.log(m2);   //Hello
 ```
 
 ### (2) Array是mutable物件
@@ -33,10 +33,10 @@ console.log(m2);
 var m1 = ['Hello'];
 var m2 = m1;
 
-console.log(typeof(m1));
-console.log(m1 instanceof Array)
-console.log(m1);
-console.log(m2);
+console.log(typeof(m1));           //object
+console.log(m1 instanceof Array)   //true
+console.log(m1);                   //['Hello']
+console.log(m2);                   //['Hello']
 console.log();
 
 //-------------------------------------------------
@@ -46,6 +46,6 @@ console.log();
 //-------------------------------------------------
 m1.push('Hi');
 
-console.log(m1);
-console.log(m2);
+console.log(m1);    //['Hello', 'Hi']
+console.log(m2);    //['Hello', 'Hi']
 ```
