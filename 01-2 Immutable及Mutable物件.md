@@ -14,7 +14,6 @@ var m2 = m1;
 
 console.log(m1);   //Hello
 console.log(m2);   //Hello
-console.log();    
 
 //-------------------------------------------------
 // m1物件(string)是一個immutable物件,
@@ -35,9 +34,9 @@ var m2 = m1;
 
 console.log(typeof(m1));           //object
 console.log(m1 instanceof Array)   //true
+
 console.log(m1);                   //['Hello']
 console.log(m2);                   //['Hello']
-console.log();
 
 //-------------------------------------------------
 // m1物件(Array)是一個mutable物件, 其內容可以更改; 
