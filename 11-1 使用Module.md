@@ -1,5 +1,6 @@
 # 11-1 使用Module
 
+## (1)
 ```
 <測試資料夾>
     |
@@ -9,7 +10,7 @@
             |__ connection.js
 ```
 
-### (1) 模組, connection.js
+### (1-1) 模組, connection.js
 
 ```javascript
 //--------------------------
@@ -25,7 +26,7 @@ module.exports = connection;
 ```
 
 
-### (2) 程式範例, main.js
+### (1-2) 程式範例, main.js
 
 ```javascript
 //-------------------
@@ -45,4 +46,57 @@ console.log(con);
 console.log(con.url);
 console.log(con.user);
 console.log(con.password);
+```
+
+
+## (2)
+```
+<測試資料夾>
+    |
+    |__ main.js
+    |
+    |__ <utility>
+            |__ adder.js
+```
+
+### (2-1) 模組, adder.js
+
+```javascript
+//-------------------
+// 使用嚴格模式
+//-------------------
+'use strict';
+
+//--------------------------
+// 一個供其他程式引入的模組
+//--------------------------
+function adder(x, y){
+    var z = x + y;
+    return z;
+}
+
+module.exports = adder;
+```
+
+
+### (2-2) 程式範例, main.js
+
+```javascript
+//-------------------
+// 使用嚴格模式
+//-------------------
+'use strict';
+
+//-------------------
+// 引用外部模組
+//-------------------
+const add = require('./utility/adder.js');
+
+//-------------------
+// 測試
+//-------------------
+var z = 100;
+
+console.log(add(10, 20));
+console.log(z);
 ```
