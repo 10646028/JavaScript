@@ -37,7 +37,7 @@ module.exports = connection;
 //-------------------
 // 引用外部模組
 //-------------------
-const con = require('./utility/connection.js');
+const con = require('./utility/connection');
 
 //-------------------
 // 測試
@@ -138,7 +138,7 @@ module.exports = adder;
 //-------------------
 // 引用外部模組
 //-------------------
-const add = require('./utility/adder.js');
+const add = require('./utility/adder');
 
 //-------------------
 // 測試
