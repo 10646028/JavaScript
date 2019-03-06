@@ -90,7 +90,7 @@ module.exports = adder;
 //-------------------
 // 引用外部模組
 //-------------------
-const add = require('./utility/adder.js');
+const add = require('./utility/adder');
 
 //-------------------
 // 測試
