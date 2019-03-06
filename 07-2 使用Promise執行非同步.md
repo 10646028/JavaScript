@@ -1,12 +1,14 @@
-# 07-2 使用Promise
-
 ```
-參考資料: https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-Promise物件內由使用者自訂一個函式, 其執行結果有成功或失敗的情況.
+<測試資料夾>
+    |
+    |__ main.js
+    |__ exams.csv    
+    |
+    |__ <utility>
+            |__ readData.js
 ```
 
-### (1-1) 測試資料, exams.csv 
+### 1. 測試資料, exams.csv 
 
 ```javascript
 120001,蔡家雅,69,76,58,85
@@ -62,59 +64,67 @@ Promise物件內由使用者自訂一個函式, 其執行結果有成功或失�
 ```
 
 
-### (1-2) 程式範例, 逐行讀入csv檔案(可測試檔案不存在情況)
+### 2. readData.js
 
-```javascript
-//------------------------------------------
-// 使用嚴格模式
-//------------------------------------------
+``` javascript
 'use strict';
 
-//------------------------------------------
 // 引用需要的模組
-//------------------------------------------
 const fs = require('fs');
 const readline = require('readline');
 
 //------------------------------------------
-// 建立一個Promise物件, 結果可能是:
-//   (1)成功: 呼叫resolve()
-//   (2)失敗: 呼叫reject()
+// 傳入一個檔案名稱, 將資料依序讀出, 放入陣列,
+// 然後回傳.
 //------------------------------------------
-const promise = new Promise((resolve, reject) => {
-    let array = [];
+function readData(fileName) {
+    return new Promise((resolve, reject) => {
+        let array = [];
 
-    //定義讀入串流
-    let inputStream = fs.createReadStream('exams.csv');
-    inputStream.on('error', (error) => {
-        reject(error);  //執行失敗
+        //定義讀入串流
+        let inputStream = fs.createReadStream(fileName);
+        inputStream.on('error', (error) => {
+            reject(error);
+        });
+
+        //建立一個讀入資料的物件
+        let lineReader = readline.createInterface({ 
+            input: inputStream 
+        });
+
+        //當讀入一行資料時
+        lineReader.on('line', function(data) { 
+            array.push(data);
+        });
+
+        //當檔案全部讀完時
+        lineReader.on('close', function() {    
+            resolve(array);  //回傳資料
+        });
     });
-
-    //建立一個讀入資料的物件
-    let lineReader = readline.createInterface({ 
-        input: inputStream 
-    });
-
-    //當讀入一行資料時
-    lineReader.on('line', function(data) {    
-        array.push(data);
-    });
-
-    //當檔案全部讀完時
-    lineReader.on('close', function() {    
-        resolve(array);  //執行成功
-    });
-});
-
+};
 
 //------------------------------------------
-// 執行Promise工作, 等待resolve或reject,
-// 當resolve()被呼叫時, 執行成功的函式;
-// 當reject()被呼叫時, 執行失敗的函式.
-//------------------------------------------
-promise.then((value) => {
-    console.log(value);  //接收成功回傳
-}, (error) => {
-    console.log('錯誤:檔案不存在' + error);  //接收失敗回傳
-});
+
+module.exports = readData;
+```
+
+
+### 3. main.js
+
+``` javascript
+const readData = require('./utility/readData.js');
+
+//產生一個Promise物件
+var promise = readData('exams.csv');
+
+//執行promise並等待回覆
+promise.then(
+    (data) => {
+        data.forEach(d => console.log(d));
+    },
+    (error) => {
+        console.log('讀檔錯誤');
+    }
+)
 ```
