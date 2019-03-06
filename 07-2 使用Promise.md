@@ -1,4 +1,4 @@
-# 07-1 使用Promise
+# 07-2 使用Promise
 
 ```
 參考資料: https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise
